@@ -15,6 +15,9 @@ impactFiles = ['dirt1.mp3', 'dirt2.mp3', 'dirt3.mp3', 'dirt4.mp3', 'dirt5.mp3'];
 var enemyGunshot = new Audio('audio/laser_sound2.mp3');
 enemyGunshot.volume = 0.6;
 
+var select = new Audio('audio/select.mp3');
+select.volume = 0.6;
+
 var fleshImpactPath = 'audio/impacts/flesh/';
 fleshImpactFiles = ['flesh1.mp3', 'flesh2.mp3', 'flesh3.mp3', 'flesh4.mp3'];
 
@@ -69,8 +72,8 @@ function off() {
 //CLEANING DUPLICATED SOUNDS
 function clean(mediaElement) {
   setTimeout(function() {
-    mediaElement.srcObject.remove();
-    mediaElement.remove();
+    mediaElement.srcObject = null;
+    mediaElement = null;
   }, 2000);
 }
 
@@ -78,6 +81,9 @@ function clean(mediaElement) {
 modeDiv = $("#fireMode")
 modeText = $("#fireText")
 $(modeDiv).click(function(){
+  const selClone = select.cloneNode();
+  selClone.play();
+  clean(selClone)
   firemode += 1;
   if (firemode == 1) {
     myGunshot = new Audio('audio/gunshots/rifle.mp3');
