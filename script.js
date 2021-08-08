@@ -208,7 +208,9 @@ function iShoot(enemy) {
   }
   else {
     setTimeout(function() {
-		  hitmarker.play();		
+      const clonedHitmarker = hitmarker.cloneNode()
+		  clonedHitmarker.play();		
+      clean(clonedHitmarker)
 	  }, 300);
   }
 
