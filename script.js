@@ -69,8 +69,7 @@ function off() {
 //CLEANING DUPLICATED SOUNDS
 function clean(mediaElement) {
   setTimeout(function() {
-    mediaElement.srcObject = null;
-    mediaElement = null;
+    mediaElement.srcObject.remove();
     mediaElement.remove();
   }, 2000);
 }
@@ -89,7 +88,7 @@ $(modeDiv).click(function(){
   else if (firemode == 2) {
     myGunshot = new Audio('audio/gunshots/sniper.mp3');
     damage = 30;
-    cooldown = 1000;
+    cooldown = 1200;
     modeText.text("Firemode: sniper");
   }
   else if (firemode == 3) {
@@ -211,7 +210,7 @@ function iShoot(enemy) {
       const clonedHitmarker = hitmarker.cloneNode()
 		  clonedHitmarker.play();		
       clean(clonedHitmarker)
-	  }, 300);
+	  }, 150);
   }
 
   var enemyHPLeft = parseInt(enemy.getAttribute("name")) - damage
