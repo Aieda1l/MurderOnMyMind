@@ -1,43 +1,43 @@
 // SOUNDS
-var music1 = new Audio('audio/music.mp3');
+var music1 = new Audio("audio/music.mp3");
 music1.volume = 0.2;
 music1.loop = true;
 
-var myGunshot = new Audio('audio/gunshots/rifle.mp3');
+var myGunshot = new Audio("audio/gunshots/rifle.mp3");
 myGunshot.volume = 0.8
 
-var enemyFallingPath = 'audio/bodyfalling/';
-enemyFallingFiles = ['fall1.mp3', 'fall2.mp3', 'fall3.mp3'];
+var enemyFallingPath = "audio/bodyfalling/";
+enemyFallingFiles = ["fall1.mp3", "fall2.mp3", "fall3.mp3"];
 
-var impactPath = 'audio/impacts/other/';
-impactFiles = ['dirt1.mp3', 'dirt2.mp3', 'dirt3.mp3', 'dirt4.mp3', 'dirt5.mp3'];
+var impactPath = "audio/impacts/other/";
+impactFiles = ["dirt1.mp3", "dirt2.mp3", "dirt3.mp3", "dirt4.mp3", "dirt5.mp3"];
 
-var enemyGunshot = new Audio('audio/laser_sound2.mp3');
+var enemyGunshot = new Audio("audio/laser_sound2.mp3");
 enemyGunshot.volume = 0.6;
 
-var select = new Audio('audio/select.mp3');
+var select = new Audio("audio/select.mp3");
 select.volume = 0.6;
 
-var fleshImpactPath = 'audio/impacts/flesh/';
-fleshImpactFiles = ['flesh1.mp3', 'flesh2.mp3', 'flesh3.mp3', 'flesh4.mp3'];
+var fleshImpactPath = "audio/impacts/flesh/";
+fleshImpactFiles = ["flesh1.mp3", "flesh2.mp3", "flesh3.mp3", "flesh4.mp3"];
 
-var injuredPath = 'audio/hit/';
-injuredFiles = ['injured1.mp3', 'injured2.mp3', 'injured3.mp3', 'injured4.mp3'];
+var injuredPath = "audio/hit/";
+injuredFiles = ["injured1.mp3", "injured2.mp3", "injured3.mp3", "injured4.mp3"];
 
-var playerDeath = new Audio('audio/death.mp3');
+var playerDeath = new Audio("audio/death.mp3");
 playerDeath.volume = 0.8;
 
-var chopperNoise = new Audio('audio/chopper.mp3');
+var chopperNoise = new Audio("audio/chopper.mp3");
 chopperNoise.volume = .7;
 chopperNoise.loop = true;
 
-var flatTire = new Audio('audio/flatTire.mp3');
+var flatTire = new Audio("audio/flatTire.mp3");
 flatTire.volume = .3;
 
-var crash = new Audio('audio/explosion.mp3');
+var crash = new Audio("audio/explosion.mp3");
 crash.volume = .7;
 
-var hitmarker = new Audio('audio/hit.mp3');
+var hitmarker = new Audio("audio/hit.mp3");
 hitmarker.volume = 1
 
 var cooldown = 250;
@@ -86,25 +86,25 @@ $(modeDiv).click(function(){
   clean(selClone)
   firemode += 1;
   if (firemode == 1) {
-    myGunshot = new Audio('audio/gunshots/rifle.mp3');
+    myGunshot = new Audio("audio/gunshots/rifle.mp3");
     damage = 15;
     cooldown = 250;
     modeText.text("Firemode: rifle");
   }
   else if (firemode == 2) {
-    myGunshot = new Audio('audio/gunshots/sniper.mp3');
+    myGunshot = new Audio("audio/gunshots/sniper.mp3");
     damage = 30;
     cooldown = 1200;
     modeText.text("Firemode: sniper");
   }
   else if (firemode == 3) {
-    myGunshot = new Audio('audio/gunshots/lmg.mp3');
+    myGunshot = new Audio("audio/gunshots/lmg.mp3");
     damage = 5;
     cooldown = 100;
     modeText.text("Firemode: LMG");
   }
   else {
-    myGunshot = new Audio('audio/gunshots/rifle.mp3');
+    myGunshot = new Audio("audio/gunshots/rifle.mp3");
     damage = 15;
     cooldown = 250;
     firemode = 1;
@@ -276,7 +276,7 @@ function assessVictory() {
         narrator();
 
 				// Level 3 intervals
-				if(document.querySelector(".level.current").id == 'level3') {
+				if(document.querySelector(".level.current").id == "level3") {
 					setTimeout(function() {
 						document.querySelector("#garageDoor").classList.add("open");
 					}, 1000);
@@ -286,7 +286,7 @@ function assessVictory() {
 				}
 
 				// Level 4 functions
-				if(document.querySelector(".level.current").id == 'level4') {
+				if(document.querySelector(".level.current").id == "level4") {
 					level4intervals();
 					clearLevel3intervals();
 				}
@@ -318,23 +318,23 @@ function narrator() {
      music1.play();
   }, 3000);
   if(gameFrame.classList.contains("playerWon")) {
-    sound = new Audio('audio/narrator/you win.mp3');
+    sound = new Audio("audio/narrator/you win.mp3");
     sound.play();
   } else if(gameFrame.classList.contains("playerDead")) {
-    sound = new Audio('audio/narrator/game over.mp3');
+    sound = new Audio("audio/narrator/game over.mp3");
     sound.play();
     music1.currentTime = 0;
-  } else if(document.querySelector(".level.current").id == 'level1') {
-    sound = new Audio('audio/narrator/round 1.mp3');
+  } else if(document.querySelector(".level.current").id == "level1") {
+    sound = new Audio("audio/narrator/round 1.mp3");
     sound.play();
-  } else if(document.querySelector(".level.current").id == 'level2') {
-    sound = new Audio('audio/narrator/round 2.mp3');
+  } else if(document.querySelector(".level.current").id == "level2") {
+    sound = new Audio("audio/narrator/round 2.mp3");
     sound.play();
-  } else if(document.querySelector(".level.current").id == 'level3') {
-    sound = new Audio('audio/narrator/round 3.mp3');
+  } else if(document.querySelector(".level.current").id == "level3") {
+    sound = new Audio("audio/narrator/round 3.mp3");
     sound.play();
-  } else if(document.querySelector(".level.current").id == 'level4') {
-    sound = new Audio('audio/narrator/last round.mp3');
+  } else if(document.querySelector(".level.current").id == "level4") {
+    sound = new Audio("audio/narrator/last round.mp3");
     sound.play();
   }
 }
@@ -357,7 +357,7 @@ function newGame() {
 		bulletImpact.remove();			
 	});
 
-	if(document.querySelector(".level.current").id == 'level4') {
+	if(document.querySelector(".level.current").id == "level4") {
 		level4intervals();
 	}
 
@@ -381,7 +381,7 @@ function newGame() {
 
 }
 
-document.querySelectorAll('.enemy').forEach(enemy => {
+document.querySelectorAll(".enemy").forEach(enemy => {
   enemy.addEventListener("click", function() {
     if (oncool == false) {
       iShoot(enemy);
@@ -393,8 +393,8 @@ document.querySelectorAll(".panel, .wall").forEach(wall => {
 
 	wall.addEventListener("click", function(e) {
     if (oncool == false) {
-      if(!wall.classList.contains('helice')) {
-        wall.innerHTML += "<div class='bulletImpact' style='top: "+e.offsetY+"px; left: "+e.offsetX+"px;'></div>";
+      if(!wall.classList.contains("helice")) {
+        wall.innerHTML += "<div class="bulletImpact" style="top: "+e.offsetY+"px; left: "+e.offsetX+"px;"></div>";
       }
       i = Math.floor(Math.random()*impactFiles.length);
       var url = (impactPath+impactFiles[i])
